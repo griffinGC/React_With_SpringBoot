@@ -31,15 +31,15 @@ public class DatabaseRunner implements ApplicationRunner{
 			System.out.println("Username : " + metaData.getUserName());
 			System.out.println("DataSource classname : " + dataSource.getClass().getName());
 			
-			Todo todo1 = new Todo();
-			todo1.setText("할일1");
-			todo1.setChecked(true);
-			repository.save(todo1);
-			
-			Todo todo2 = new Todo();
-			todo2.setText("할일2");
-			todo2.setChecked(false);
-			repository.save(todo2);
+//			Todo todo1 = new Todo();
+//			todo1.setText("할일1");
+//			todo1.setChecked(true);
+//			repository.save(todo1);
+//			
+//			Todo todo2 = new Todo();
+//			todo2.setText("할일2");
+//			todo2.setChecked(false);
+//			repository.save(todo2);
 			
 		}
 		
