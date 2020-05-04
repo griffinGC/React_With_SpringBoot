@@ -48,10 +48,10 @@ public class TodoController {
 	
 	// 1개 삭제
 	@DeleteMapping("/api/todos/{id}")
-	public ResponseEntity<String> deleteTodo(@PathVariable Long id){
+	public List<Todo> deleteTodo(@PathVariable Long id){
 		Todo delObject = todoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Todo", "id", id));
 		todoRepository.delete(delObject);
-		return new ResponseEntity(delObject + " deleted ", HttpStatus.OK );
+		return todoRepository.findAll();
 	}
 	
 	// checked 수정
