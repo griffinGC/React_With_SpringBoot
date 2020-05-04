@@ -39,10 +39,11 @@ public class TodoController {
 		return todoObj;
 	}
 	
-	// 등록
+	// 등록 => 등록하고 모두 불러오기 위해서 수정
 	@PostMapping("/api/todos")
-	public Todo createTodo(@RequestBody Todo todo) {
-		return todoRepository.save(todo);
+	public List<Todo> createTodo(@RequestBody Todo todo) {
+		todoRepository.save(todo);
+		return todoRepository.findAll();
 	}
 	
 	// 1개 삭제
