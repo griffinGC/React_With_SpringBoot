@@ -56,12 +56,12 @@ public class TodoController {
 	
 	// checked 수정
 	@PutMapping("/api/todos/{id}")
-	public Todo updateCheckTodo(@PathVariable Long id, @RequestBody Todo changedTodo) {
+	public List<Todo> updateCheckTodo(@PathVariable Long id, @RequestBody Todo changedTodo) {
 		Todo updateObj = todoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Todo", "id", id));
 		updateObj.setChecked(changedTodo.getChecked());
 		updateObj.setText(changedTodo.getText());
-		Todo Updated = todoRepository.save(updateObj);
-		return Updated;
+		todoRepository.save(updateObj);
+		return todoRepository.findAll();
 	}
 	
 }
